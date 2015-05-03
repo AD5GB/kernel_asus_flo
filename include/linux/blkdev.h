@@ -365,6 +365,9 @@ struct request_queue {
 	struct list_head	icq_list;
 
 	struct queue_limits	limits;
+   	bool			notified_urgent;
+	bool			dispatched_urgent;
+
 
 	/*
 	 * sg stuff
