@@ -1,3 +1,9 @@
+# RDD - Hacks!
+HOST_CFLAGS += -Wno-discarded-array-qualifiers
+KBUILD_CFLAGS += -Wno-discarded-array-qualifiers
+CFLAGS_KERNEL += -Wno-discarded-array-qualifiers
+CFLAGS_MODULE += -Wno-discarded-array-qualifiers
+
 snd-soc-88pm860x-objs := 88pm860x-codec.o
 snd-soc-ac97-objs := ac97.o
 snd-soc-ad1836-objs := ad1836.o
