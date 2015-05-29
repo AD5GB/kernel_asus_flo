@@ -247,10 +247,15 @@ HOSTCC       = gcc
 HOSTCXX      = g++
 #HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer
 #HOSTCXXFLAGS = -O2
-HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fomit-frame-pointer \
-	-ftree-loop-optimize -ftree-loop-linear -floop-interchange -fgraphite-identity \
-	-floop-flatten -floop-parallelize-all -floop-strip-mine -floop-block
-HOSTCXXFLAGS = -O3
+HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fomit-frame-pointer -pipe \
+	-fgcse-las -floop-nest-optimize -fgraphite -fgraphite-identity \
+	-floop-flatten -floop-parallelize-all -ftree-loop-linear -floop-interchange \
+	-ftree-loop-optimize -floop-strip-mine -floop-block
+
+HOSTCXXFLAGS = -O3 -pipe -fgcse-las -floop-nest-optimize -fgraphite -fgraphite-identity \
+	-floop-flatten -floop-parallelize-all -ftree-loop-linear -floop-interchange \
+	-ftree-loop-optimize -floop-strip-mine -floop-block
+
 
 # Decide whether to build built-in, modular, or both.
 # Normally, just do built-in.
