@@ -245,14 +245,14 @@ CONFIG_SHELL := $(shell if [ -x "$$BASH" ]; then echo $$BASH; \
 
 HOSTCC       = gcc
 HOSTCXX      = g++
-#HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer
-#HOSTCXXFLAGS = -O2
-HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fomit-frame-pointer -pipe \
+HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer
+HOSTCXXFLAGS = -O2
+#HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fomit-frame-pointer -pipe \
 	-fgcse-las -floop-nest-optimize -fgraphite -fgraphite-identity \
 	-floop-flatten -floop-parallelize-all -ftree-loop-linear -floop-interchange \
 	-ftree-loop-optimize -floop-strip-mine -floop-block
 
-HOSTCXXFLAGS = -O3 -pipe -fgcse-las -floop-nest-optimize -fgraphite -fgraphite-identity \
+#HOSTCXXFLAGS = -O3 -pipe -fgcse-las -floop-nest-optimize -fgraphite -fgraphite-identity \
 	-floop-flatten -floop-parallelize-all -ftree-loop-linear -floop-interchange \
 	-ftree-loop-optimize -floop-strip-mine -floop-block
 
@@ -574,8 +574,8 @@ all: vmlinux
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os
 else
-#KBUILD_CFLAGS	+= -O2
-KBUILD_CFLAGS	+= -O3
+KBUILD_CFLAGS	+= -O2
+#KBUILD_CFLAGS	+= -O3
 endif
 
 include $(srctree)/arch/$(SRCARCH)/Makefile
